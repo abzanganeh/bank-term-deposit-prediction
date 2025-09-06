@@ -1,0 +1,38 @@
+# Data files
+*.csv
+*.xlsx
+*.json
+data/
+datasets/
+*.zip
+
+# Model files
+*.pkl
+*.joblib
+*.h5
+models/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+.venv
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

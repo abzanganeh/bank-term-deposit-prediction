@@ -63,7 +63,106 @@ MODEL_CONFIG = {
             'criterion': 'entropy',
             'random_state': 42
         }
+    },
+    'random_forest': {
+        'model_type': 'RandomForestClassifier',
+        'params': {
+            'n_estimators': 100,
+            'random_state': 42,
+            'n_jobs': -1
+        }
+    },
+    'xgboost': {
+        'model_type': 'XGBClassifier',
+        'params': {
+            'random_state': 42,
+            'eval_metric': 'logloss'
+        }
+    },
+    'lightgbm': {
+        'model_type': 'LGBMClassifier',
+        'params': {
+            'random_state': 42,
+            'verbose': -1
+        }
+    },
+    'svm': {
+        'model_type': 'SVC',
+        'params': {
+            'random_state': 42,
+            'probability': True
+        }
+    },
+    'logistic_regression': {
+        'model_type': 'LogisticRegression',
+        'params': {
+            'random_state': 42,
+            'max_iter': 1000
+        }
     }
+}
+
+# Hyperparameter Tuning Configuration
+TUNING_CONFIG = {
+    'enable_tuning': True,
+    'tuning_method': 'optuna',  # 'grid', 'random', or 'optuna'
+    'n_trials': 20,  # Reduced for faster execution
+    'cv_folds': 3,   # Reduced for faster execution
+    'scoring': 'roc_auc',  # Changed to roc_auc which works better with imbalanced data
+    'n_jobs': -1,
+    'random_state': 42
+}
+
+# Hyperparameter Search Spaces
+HYPERPARAMETER_SPACES = {
+    'random_forest': {
+        'n_estimators': [50, 100, 200, 300],
+        'max_depth': [None, 10, 20, 30],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4],
+        'max_features': ['sqrt', 'log2', None]
+    },
+    'xgboost': {
+        'n_estimators': [50, 100, 200, 300],
+        'max_depth': [3, 4, 5, 6, 7],
+        'learning_rate': [0.01, 0.1, 0.2, 0.3],
+        'subsample': [0.8, 0.9, 1.0],
+        'colsample_bytree': [0.8, 0.9, 1.0]
+    },
+    'lightgbm': {
+        'n_estimators': [50, 100, 200, 300],
+        'max_depth': [3, 4, 5, 6, 7],
+        'learning_rate': [0.01, 0.1, 0.2, 0.3],
+        'subsample': [0.8, 0.9, 1.0],
+        'colsample_bytree': [0.8, 0.9, 1.0]
+    },
+    'svm': {
+        'C': [0.1, 1, 10],
+        'gamma': ['scale', 'auto'],
+        'kernel': ['rbf']
+    },
+    'logistic_regression': {
+        'C': [0.01, 0.1, 1, 10, 100],
+        'penalty': ['l2'],
+        'solver': ['lbfgs', 'saga']
+    }
+}
+
+# Threshold Optimization Configuration
+THRESHOLD_CONFIG = {
+    'enable_threshold_optimization': True,
+    'threshold_range': (0.1, 0.9),
+    'threshold_step': 0.01,
+    'optimization_metric': 'f1'
+}
+
+# Model Stacking Configuration
+STACKING_CONFIG = {
+    'enable_stacking': True,
+    'stacking_method': 'voting',  # 'voting' or 'blending'
+    'meta_model': 'logistic_regression',
+    'cv_folds': 5,
+    'use_proba': True
 }
 
 # Visualization Configuration

@@ -203,19 +203,19 @@ results/
 When you run the pipeline, you'll see progress like this:
 
 ```
-🚀 BANK TERM DEPOSIT PREDICTION - ENHANCED ML PIPELINE
+ BANK TERM DEPOSIT PREDICTION - ENHANCED ML PIPELINE
 ====================================================================
 
-🔍 STEP 1: DATA PROCESSING
+ STEP 1: DATA PROCESSING
    ✓ Data loaded successfully: (41188, 21)
    ✓ Target distribution: No=88.3%, Yes=11.7%
 
-⚙️ STEP 2: FEATURE ENGINEERING
+ STEP 2: FEATURE ENGINEERING
    ✓ Created 'pdays999' feature
    ✓ Removed correlated features
    ✓ Final feature matrix: (41188, 51)
 
-🧠 STEP 3: ENHANCED MODEL TRAINING
+ STEP 3: ENHANCED MODEL TRAINING
    
    Processing XGBOOST (4/8)
    ✓ Training xgboost... (0.6s)
@@ -229,13 +229,13 @@ When you run the pipeline, you'll see progress like this:
    [THRESHOLD] Optimizing decision threshold...
    ✓ Best threshold: 0.390 (F1-Score: 0.6033)
 
-📊 STEP 4: ENHANCED MODEL EVALUATION
+ STEP 4: ENHANCED MODEL EVALUATION
    ✓ ROC curves saved
    ✓ Precision-Recall curves saved
    ✓ Confusion matrices saved
    ✓ Threshold optimization plots saved
 
-🎯 ENHANCED PIPELINE COMPLETED SUCCESSFULLY
+ ENHANCED PIPELINE COMPLETED SUCCESSFULLY
 
 Best Overall Model: xgboost
   Accuracy: 91.75% | F1-Score: 60.33% | ROC-AUC: 94.79%
